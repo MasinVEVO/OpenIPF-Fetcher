@@ -13,13 +13,6 @@ public class LifterData
     {
         string csvDirectory = Path.Combine(AppContext.BaseDirectory, "lifters");
         var csvFile = Directory.GetFiles(csvDirectory, "*.csv").FirstOrDefault();
-
-        if (csvFile == null)
-        {
-            Console.WriteLine("No information found");
-            return;
-        }
-
         var lines = await File.ReadAllLinesAsync(csvFile);
         if (lines.Length < 2)
         {
@@ -38,12 +31,6 @@ public class LifterData
         int deadIndex  = GetIndex(header, "Best3DeadliftKg");
         int totalIndex = GetIndex(header, "TotalKg");
         int glIndex    = GetIndex(header, "Goodlift");
-
-        int[] indices =
-        {
-            nameIndex, ageIndex, bwIndex, wcIndex,
-            squatIndex, benchIndex, deadIndex, totalIndex, glIndex
-        };
         
         var lifter = lines
             .Skip(1)
