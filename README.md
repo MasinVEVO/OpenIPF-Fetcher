@@ -22,7 +22,6 @@ The application aggregates multiple competition entries per lifter into a single
   - Best Deadlift
   - Total
   - Goodlift score
-- Proper number formatting (Dutch locale supported)
 
 ---
 
